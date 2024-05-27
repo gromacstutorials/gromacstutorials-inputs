@@ -1,7 +1,7 @@
 ## Input files for GROMACS tutorials
 
 LAMMPS and Python input files corresponding
-associated with [gromavs tutorials](https://gromacstutorials.github.io/).
+associated with [gromacs tutorials](https://gromacstutorials.github.io/).
 
 The files include:
 
