@@ -1,0 +1,45 @@
+# This file was created Tue May 28 21:33:45 2024
+# Created by:
+#          :-) GROMACS - gmx energy, 2023.3-Ubuntu_2023.3_1ubuntu3 (-:
+# 
+# Executable:   /usr/bin/gmx
+# Data prefix:  /usr
+# Working dir:  /home/simon/Git/GROMACS/inputs/level1/protein-in-electrolyte
+# Command line:
+#   gmx energy -f npt.edr -o density-npt.xvg
+# gmx energy is part of G R O M A C S:
+#
+# Green Red Orange Magenta Azure Cyan Skyblue
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(kg/m^3)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Density"
+    0.000000  1016.495178
+    1.000000  1039.160522
+    2.000000  1040.990234
+    3.000000  1044.645386
+    4.000000  1050.236572
+    5.000000  1046.737427
+    6.000000  1047.023193
+    7.000000  1050.540039
+    8.000000  1059.031616
+    9.000000  1061.812256
+   10.000000  1059.072510
+   11.000000  1055.466797
+   12.000000  1056.841431
+   13.000000  1056.776855
+   14.000000  1054.356323
+   15.000000  1053.929810
+   16.000000  1055.853394
+   17.000000  1054.066040
+   18.000000  1054.498291
+   19.000000  1059.707397
+   20.000000  1055.947266

@@ -2,16 +2,16 @@
 ;	File 'nvt.mdp' was generated
 ;	By user: simon (1000)
 ;	On host: laptop
-;	At date: Mon May 27 19:08:32 2024
+;	At date: Tue May 28 21:14:56 2024
 ;
 ;	Created by:
 ;	         :-) GROMACS - gmx grompp, 2023.3-Ubuntu_2023.3_1ubuntu3 (-:
 ;	
 ;	Executable:   /usr/bin/gmx
 ;	Data prefix:  /usr
-;	Working dir:  /home/simon/Desktop
+;	Working dir:  /home/simon/Git/GROMACS/inputs/level1/protein-in-electrolyte
 ;	Command line:
-;	  gmx grompp -f inputs/nvt.mdp -c salted.gro -p topol.top -o nvt -pp nvt -po nvt
+;	  gmx grompp -f inputs/nvt.mdp -c min-s.gro -p topol.top -o nvt -pp nvt -po nvt
 
 ; VARIOUS PREPROCESSING OPTIONS
 ; Preprocessor information: use cpp syntax.
@@ -24,7 +24,7 @@ define                   =
 integrator               = md
 ; Start time and timestep in ps
 tinit                    = 0
-dt                       = 0.0001
+dt                       = 0.001
 nsteps                   = 20000
 ; For exact run continuation or redoing part of a run
 init-step                = 0
@@ -98,7 +98,7 @@ rlist                    = 1
 coulombtype              = pme
 coulomb-modifier         = Potential-shift-Verlet
 rcoulomb-switch          = 0
-rcoulomb                 = 1.2
+rcoulomb                 = 1.0
 ; Relative dielectric constant for the medium and the reaction field
 epsilon-r                = 1
 epsilon-rf               = 0
@@ -107,7 +107,7 @@ vdw-type                 = Cut-off
 vdw-modifier             = Potential-shift-Verlet
 ; cut-off lengths       
 rvdw-switch              = 0
-rvdw                     = 1.2
+rvdw                     = 1.0
 ; Apply long range dispersion corrections for Energy and Pressure
 DispCorr                 = No
 ; Extension of the potential lookup tables beyond the cut-off
@@ -171,7 +171,7 @@ annealing-temp           =
 ; GENERATE VELOCITIES FOR STARTUP RUN
 gen-vel                  = yes
 gen-temp                 = 300
-gen-seed                 = -67506179
+gen-seed                 = -33920577
 
 ; OPTIONS FOR BONDS    
 constraints              = hbonds

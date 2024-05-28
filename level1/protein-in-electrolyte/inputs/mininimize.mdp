@@ -17,5 +17,5 @@ fourierspacing = 0.1
 pme-order = 4
 rcoulomb = 1.2
 
-constraint-algorithm = lincs
-constraints = hbonds
+;constraint-algorithm = lincs
+;constraints = hbonds

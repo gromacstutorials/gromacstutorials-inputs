@@ -1,0 +1,45 @@
+# This file was created Tue May 28 21:20:32 2024
+# Created by:
+#          :-) GROMACS - gmx energy, 2023.3-Ubuntu_2023.3_1ubuntu3 (-:
+# 
+# Executable:   /usr/bin/gmx
+# Data prefix:  /usr
+# Working dir:  /home/simon/Git/GROMACS/inputs/level1/protein-in-electrolyte
+# Command line:
+#   gmx energy -f nvt.edr -o temperature-nvt.xvg
+# gmx energy is part of G R O M A C S:
+#
+# GROningen MAchine for Chemical Simulation
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(K)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Temperature"
+    0.000000  300.286896
+    1.000000  356.084015
+    2.000000  334.838409
+    3.000000  314.734375
+    4.000000  308.743866
+    5.000000  304.641632
+    6.000000  303.650482
+    7.000000  299.278900
+    8.000000  297.712311
+    9.000000  295.076447
+   10.000000  298.241241
+   11.000000  302.018341
+   12.000000  301.840210
+   13.000000  303.581726
+   14.000000  304.148621
+   15.000000  302.421631
+   16.000000  299.373901
+   17.000000  294.873688
+   18.000000  300.737000
+   19.000000  304.292145
+   20.000000  299.737305

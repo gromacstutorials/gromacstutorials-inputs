@@ -2,7 +2,7 @@
 ;	File 'topol.top' was generated
 ;	By user: simon (1000)
 ;	On host: laptop
-;	At date: Mon May 27 18:41:18 2024
+;	At date: Tue May 28 19:42:10 2024
 ;
 ;	This is a standalone topology file
 ;
@@ -11,7 +11,7 @@
 ;	
 ;	Executable:   /usr/bin/gmx
 ;	Data prefix:  /usr
-;	Working dir:  /home/simon/Desktop
+;	Working dir:  /home/simon/Git/GROMACS/inputs/level1/protein-in-electrolyte
 ;	Command line:
 ;	  gmx pdb2gmx -f 1cta.gro -water spce -v -ignh -o unsolvated.gro
 ;	Force field was read from the standard GROMACS share directory.

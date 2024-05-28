@@ -1,0 +1,45 @@
+# This file was created Tue May 28 21:33:20 2024
+# Created by:
+#          :-) GROMACS - gmx energy, 2023.3-Ubuntu_2023.3_1ubuntu3 (-:
+# 
+# Executable:   /usr/bin/gmx
+# Data prefix:  /usr
+# Working dir:  /home/simon/Git/GROMACS/inputs/level1/protein-in-electrolyte
+# Command line:
+#   gmx energy -f npt.edr -o volume-npt.xvg
+# gmx energy is part of G R O M A C S:
+#
+# GRoups of Organic Molecules in ACtion for Science
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(nm^3)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Volume"
+    0.000000  125.000000
+    1.000000  122.273598
+    2.000000  122.058678
+    3.000000  121.631607
+    4.000000  120.984070
+    5.000000  121.388512
+    6.000000  121.355377
+    7.000000  120.949120
+    8.000000  119.979324
+    9.000000  119.665123
+   10.000000  119.974693
+   11.000000  120.384552
+   12.000000  120.227959
+   13.000000  120.235306
+   14.000000  120.511345
+   15.000000  120.560104
+   16.000000  120.340477
+   17.000000  120.544533
+   18.000000  120.495110
+   19.000000  119.902809
+   20.000000  120.329773

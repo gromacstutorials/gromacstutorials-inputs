@@ -1,0 +1,45 @@
+# This file was created Tue May 28 21:20:39 2024
+# Created by:
+#          :-) GROMACS - gmx energy, 2023.3-Ubuntu_2023.3_1ubuntu3 (-:
+# 
+# Executable:   /usr/bin/gmx
+# Data prefix:  /usr
+# Working dir:  /home/simon/Git/GROMACS/inputs/level1/protein-in-electrolyte
+# Command line:
+#   gmx energy -f nvt.edr -o potential-energy-nvt.xvg
+# gmx energy is part of G R O M A C S:
+#
+# Gromacs Runs One Microsecond At Cannonball Speeds
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(kJ/mol)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Potential"
+    0.000000  -200410.406250
+    1.000000  -220177.875000
+    2.000000  -226259.812500
+    3.000000  -229250.625000
+    4.000000  -231239.421875
+    5.000000  -232170.468750
+    6.000000  -233337.031250
+    7.000000  -233962.140625
+    8.000000  -233846.078125
+    9.000000  -233276.671875
+   10.000000  -233759.906250
+   11.000000  -233765.062500
+   12.000000  -233581.296875
+   13.000000  -234279.843750
+   14.000000  -234756.812500
+   15.000000  -234945.156250
+   16.000000  -234941.750000
+   17.000000  -234357.500000
+   18.000000  -234762.437500
+   19.000000  -235053.796875
+   20.000000  -235151.937500

@@ -1,0 +1,45 @@
+# This file was created Tue May 28 21:17:56 2024
+# Created by:
+#          :-) GROMACS - gmx energy, 2023.3-Ubuntu_2023.3_1ubuntu3 (-:
+# 
+# Executable:   /usr/bin/gmx
+# Data prefix:  /usr
+# Working dir:  /home/simon/Git/GROMACS/inputs/level1/protein-in-electrolyte
+# Command line:
+#   gmx energy -f nvt.edr
+# gmx energy is part of G R O M A C S:
+#
+# Great Red Oystrich Makes All Chemists Sane
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(bar)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Pressure"
+    0.000000  2607.079346
+    1.000000  214.882996
+    2.000000   34.810177
+    3.000000  -702.472229
+    4.000000  -659.640198
+    5.000000  -591.716309
+    6.000000  -507.691040
+    7.000000  -1019.981384
+    8.000000  -513.716614
+    9.000000  -749.706482
+   10.000000  -956.570374
+   11.000000  -1014.752930
+   12.000000  -595.403015
+   13.000000  -1055.128784
+   14.000000  -618.076965
+   15.000000  -952.229004
+   16.000000  -851.582031
+   17.000000  -638.270264
+   18.000000  -578.616394
+   19.000000  -726.960144
+   20.000000  -693.895813
