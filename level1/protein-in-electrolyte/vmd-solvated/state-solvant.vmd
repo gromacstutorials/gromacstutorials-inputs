@@ -296,7 +296,6 @@ display dof off
 display dof_fnumber 64.000000
 display dof_focaldist 0.700000
 mol new ../npt.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../npt.xtc type xtc first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
 mol delrep 0 top
 mol representation NewCartoon 0.300000 50.000000 3.640000 0
 mol color Element
@@ -332,7 +331,7 @@ mol clipplane center 5 0 top {0.0 0.0 0.0}
 mol clipplane color  5 0 top {0.5 0.5 0.5 }
 mol clipplane normal 5 0 top {0.0 0.0 1.0}
 mol clipplane status 5 0 top {0}
-mol representation VDW 0.800000 32.000000
+mol representation VDW 0.700000 32.000000
 mol color Name
 mol selection {resname NA}
 mol material Opaque
@@ -366,8 +365,7 @@ mol clipplane center 5 1 top {0.0 0.0 0.0}
 mol clipplane color  5 1 top {0.5 0.5 0.5 }
 mol clipplane normal 5 1 top {0.0 0.0 1.0}
 mol clipplane status 5 1 top {0}
-mol showrep top 1 0
-mol representation VDW 1.100000 37.000000
+mol representation VDW 0.800000 37.000000
 mol color Name
 mol selection {resname CL}
 mol material Opaque
@@ -401,7 +399,6 @@ mol clipplane center 5 2 top {0.0 0.0 0.0}
 mol clipplane color  5 2 top {0.5 0.5 0.5 }
 mol clipplane normal 5 2 top {0.0 0.0 1.0}
 mol clipplane status 5 2 top {0}
-mol showrep top 2 0
 mol representation DynamicBonds 1.600000 0.100000 12.000000
 mol color Name
 mol selection {same fragment as resname SOL and name OW and within 6 of resname ACE LYS SER GLU LEU ALA ASN ALA PHE ARG ILE ASP GLY TYR ILE NH2 THR}
@@ -576,7 +573,7 @@ mol clipplane normal 5 7 top {0.0 0.0 1.0}
 mol clipplane status 5 7 top {0}
 mol showrep top 7 0
 mol rename top npt.gro
-set viewpoints([molinfo top]) {{{1 0 0 -24.7645} {0 1 0 -24.5913} {0 0 1 -24.5436} {0 0 0 1}} {{0.417131 0.883618 0.212624 0} {0.391687 -0.385894 0.83526 0} {0.820106 -0.265129 -0.507072 0} {0 0 0 1}} {{0.00974184 0 0 0} {0 0.00974184 0 0} {0 0 0.00974184 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 -0.03} {0 0 1 0} {0 0 0 1}}}
+set viewpoints([molinfo top]) {{{1 0 0 -24.7645} {0 1 0 -24.5913} {0 0 1 -24.5436} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}} {{0.00818342 0 0 0} {0 0.00818342 0 0} {0 0 0.00818342 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 set topmol [molinfo top]
 # done with molecule 0
@@ -629,10 +626,10 @@ color scale colors turbo {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
 color scale colors CET_R2 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
   color scale method RWB
   set colorcmds {
-    {color Display {Background} white}
     {color Display {BackgroundTop} black}
     {color Display {BackgroundBot} blue2}
     {color Display {FPS} white}
+    {color Name {C} lime}
     {color Name {LPA} green}
     {color Name {LPB} green}
     {color Type {LP} green}
@@ -769,7 +766,7 @@ color scale colors CET_R2 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
   color change rgb 9 1.0 0.6000000238418579 0.6000000238418579
   color change rgb 10 0.0 1.0 0.8169891834259033
   color change rgb 11 0.6499999761581421 0.0 0.6499999761581421
-  color change rgb 12 0.5 0.8999999761581421 0.4000000059604645
+  color change rgb 12 0.5383877158164978 0.8999999761581421 0.7356615662574768
   color change rgb 13 0.8999999761581421 0.4000000059604645 0.699999988079071
   color change rgb 14 0.5 0.30000001192092896 0.0
   color change rgb 15 0.5 0.5 0.75
