@@ -10,11 +10,3 @@
   HW     1       1.0079   0.5270  A      0.00000  0.00000
   OW     8      15.9994   0.0000  A      0.31650  0.77323
   MW     0       0.0000  -1.0540  D      0.00000  0.00000
-
-[ bondtypes ]
-; i   j   func  b0    kb
-  SO  OS  1     0.15  3.7656e4
-
-[ angletypes ]
-; i   j   k   func  theta  k0          
-  OS  SO  OS  1     109.5  520
