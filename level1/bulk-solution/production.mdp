@@ -1,8 +1,8 @@
 ;
-;	File 'min.mdp' was generated
+;	File 'production.mdp' was generated
 ;	By user: simon (1000)
 ;	On host: tower
-;	At date: Thu Jun  6 16:38:23 2024
+;	At date: Thu Jun  6 16:41:17 2024
 ;
 ;	Created by:
 ;	                     :-) GROMACS - gmx grompp, 2024.2 (-:
@@ -11,7 +11,7 @@
 ;	Data prefix:  /home/simon/Softwares/gromacs-2024.2 (source tree)
 ;	Working dir:  /home/simon/Git/GROMACS/inputs/level1/bulk-solution
 ;	Command line:
-;	  gmx grompp -f inputs/min.mdp -c conf.gro -p topol.top -o min -pp min -po min
+;	  gmx grompp -f inputs/production.mdp -c npt.gro -p topol.top -o production -pp production -po production
 
 ; VARIOUS PREPROCESSING OPTIONS
 ; Preprocessor information: use cpp syntax.
@@ -21,11 +21,11 @@ include                  =
 define                   = 
 
 ; RUN CONTROL PARAMETERS
-integrator               = steep
+integrator               = md
 ; Start time and timestep in ps
 tinit                    = 0
 dt                       = 0.001
-nsteps                   = 5000
+nsteps                   = 400000
 ; For exact run continuation or redoing part of a run
 init-step                = 0
 ; Part index is updated automatically on checkpointing (keeps files separate)
@@ -35,16 +35,16 @@ mts                      = no
 ; factor by which to increase the mass of the lightest atoms
 mass-repartition-factor  = 1
 ; mode for center of mass motion removal
-comm-mode                = Linear
+comm_mode                = linear
 ; number of steps for center of mass motion removal
 nstcomm                  = 100
 ; group(s) for center of mass motion removal
-comm-grps                = 
+comm_grps                = system
 
 ; LANGEVIN DYNAMICS OPTIONS
 ; Friction coefficient (amu/ps) and random seed
 bd-fric                  = 0
-ld-seed                  = -1
+ld-seed                  = 48456
 
 ; ENERGY MINIMIZATION OPTIONS
 ; Force tolerance and initial step-size
@@ -63,15 +63,15 @@ rtpi                     = 0.05
 
 ; OUTPUT CONTROL OPTIONS
 ; Output frequency for coords (x), velocities (v) and forces (f)
-nstxout                  = 10
+nstxout                  = 0
 nstvout                  = 0
 nstfout                  = 0
 ; Output frequency for energies to log file and energy file
-nstlog                   = 1000
+nstlog                   = 100
 nstcalcenergy            = 100
-nstenergy                = 1000
+nstenergy                = 100
 ; Output frequency and precision for .xtc file
-nstxout-compressed       = 0
+nstxout-compressed       = 1000
 compressed-x-precision   = 1000
 ; This selects the subset of atoms for the compressed
 ; trajectory file. You can select multiple groups. By
@@ -99,10 +99,10 @@ rlist                    = 1
 
 ; OPTIONS FOR ELECTROSTATICS AND VDW
 ; Method for doing electrostatics
-coulombtype              = Cut-off
+coulombtype              = pme
 coulomb-modifier         = Potential-shift-Verlet
 rcoulomb-switch          = 0
-rcoulomb                 = 1
+rcoulomb                 = 1.0
 ; Relative dielectric constant for the medium and the reaction field
 epsilon-r                = 1
 epsilon-rf               = 0
@@ -111,7 +111,7 @@ vdw-type                 = Cut-off
 vdw-modifier             = Potential-shift-Verlet
 ; cut-off lengths       
 rvdw-switch              = 0
-rvdw                     = 1
+rvdw                     = 1.0
 ; Apply long range dispersion corrections for Energy and Pressure
 DispCorr                 = No
 ; Extension of the potential lookup tables beyond the cut-off
@@ -119,7 +119,7 @@ table-extension          = 1
 ; Separate tables between energy group pairs
 energygrp-table          = 
 ; Spacing for the PME/PPPM FFT grid
-fourierspacing           = 0.12
+fourierspacing           = 0.1
 ; FFT grid size, when a value is 0 fourierspacing will be used
 fourier-nx               = 0
 fourier-ny               = 0
@@ -137,15 +137,15 @@ implicit-solvent         = no
 ensemble-temperature-setting = auto
 ensemble-temperature     = -1
 ; Temperature coupling  
-tcoupl                   = No
+tcoupl                   = v-rescale
 nsttcouple               = -1
 nh-chain-length          = 10
 print-nose-hoover-chain-variables = no
 ; Groups to couple separately
-tc-grps                  = 
+tc-grps                  = Water non-Water
 ; Time constant (ps) and reference temperature (K)
-tau-t                    = 
-ref-t                    = 
+tau-t                    = 0.5 0.5
+ref-t                    = 360 360
 ; pressure coupling     
 pcoupl                   = No
 pcoupltype               = Isotropic
@@ -175,12 +175,12 @@ annealing-temp           =
 ; GENERATE VELOCITIES FOR STARTUP RUN
 gen-vel                  = no
 gen-temp                 = 300
-gen-seed                 = -1111560245
+gen-seed                 = -740853265
 
 ; OPTIONS FOR BONDS    
-constraints              = none
+constraints              = hbonds
 ; Type of constraint algorithm
-constraint-algorithm     = Lincs
+constraint-algorithm     = lincs
 ; Do not constrain the start configuration
 continuation             = no
 ; Use successive overrelaxation to reduce the number of shake iterations

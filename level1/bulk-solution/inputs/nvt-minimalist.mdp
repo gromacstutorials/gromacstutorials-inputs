@@ -2,7 +2,9 @@ integrator = md
 nsteps = 20000
 dt = 0.001
 
-nstxout-compressed = 1000
+nstlog = 100
+nstenergy = 100
+nstxout-compressed = 200
 
 tcoupl = v-rescale
 ref-t = 360

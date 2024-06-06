@@ -1,15 +1,15 @@
 ;
 ;	File 'nvt.mdp' was generated
 ;	By user: simon (1000)
-;	On host: simon-tower
-;	At date: Tue Apr 25 11:42:44 2023
+;	On host: tower
+;	At date: Thu Jun  6 16:38:48 2024
 ;
 ;	Created by:
-;	                      :-) GROMACS - gmx grompp, 2023 (-:
+;	                     :-) GROMACS - gmx grompp, 2024.2 (-:
 ;	
-;	Executable:   /usr/local/bin/gmx
-;	Data prefix:  /usr/local
-;	Working dir:  /home/simon/Git/Gromacs/gromacstutorials.github.io/docs/inputs/bulksolution
+;	Executable:   /home/simon/Softwares/gromacs-2024.2/build/bin/gmx
+;	Data prefix:  /home/simon/Softwares/gromacs-2024.2 (source tree)
+;	Working dir:  /home/simon/Git/GROMACS/inputs/level1/bulk-solution
 ;	Command line:
 ;	  gmx grompp -f inputs/nvt.mdp -c min.gro -p topol.top -o nvt -pp nvt -po nvt
 
@@ -32,6 +32,8 @@ init-step                = 0
 simulation-part          = 1
 ; Multiple time-stepping
 mts                      = no
+; factor by which to increase the mass of the lightest atoms
+mass-repartition-factor  = 1
 ; mode for center of mass motion removal
 comm_mode                = linear
 ; number of steps for center of mass motion removal
@@ -65,11 +67,11 @@ nstxout                  = 0
 nstvout                  = 0
 nstfout                  = 0
 ; Output frequency for energies to log file and energy file
-nstlog                   = 1000
+nstlog                   = 100
 nstcalcenergy            = 100
-nstenergy                = 1000
+nstenergy                = 100
 ; Output frequency and precision for .xtc file
-nstxout-compressed       = 1000
+nstxout-compressed       = 200
 compressed-x-precision   = 1000
 ; This selects the subset of atoms for the compressed
 ; trajectory file. You can select multiple groups. By
@@ -86,9 +88,11 @@ nstlist                  = 10
 ; Periodic boundary conditions: xyz, no, xy
 pbc                      = xyz
 periodic-molecules       = no
-; Allowed energy error due to the Verlet buffer in kJ/mol/ps per atom,
+; Allowed energy drift due to the Verlet buffer in kJ/mol/ps per atom,
 ; a value of -1 means: use rlist
 verlet-buffer-tolerance  = 0.005
+; Allowed error in the average pressure due to the Verlet buffer for LJ interactions
+verlet-buffer-pressure-tolerance = 0.5
 ; nblist cut-off        
 rlist                    = 1
 ; long-range cut-off for switched potentials
@@ -147,7 +151,7 @@ pcoupl                   = No
 pcoupltype               = Isotropic
 nstpcouple               = -1
 ; Time constant (ps), compressibility (1/bar) and reference P (bar)
-tau-p                    = 1
+tau-p                    = 5
 compressibility          = 
 ref-p                    = 
 ; Scaling of reference coordinates, No, All or COM
@@ -171,7 +175,7 @@ annealing-temp           =
 ; GENERATE VELOCITIES FOR STARTUP RUN
 gen-vel                  = yes
 gen-temp                 = 360
-gen-seed                 = -1482761219
+gen-seed                 = 1140808635
 
 ; OPTIONS FOR BONDS    
 constraints              = hbonds
@@ -282,6 +286,7 @@ freezegrps               =
 freezedim                = 
 cos-acceleration         = 0
 deform                   = 
+deform-init-flow         = no
 
 ; simulated tempering variables
 simulated-tempering      = no
@@ -319,3 +324,6 @@ density-guided-simulation-active = false
 
 ; QM/MM with CP2K
 qmmm-cp2k-active         = false
+
+; Colvars bias
+colvars-active           = false

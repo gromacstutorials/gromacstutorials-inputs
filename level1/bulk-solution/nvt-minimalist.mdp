@@ -1,8 +1,8 @@
 ;
-;	File 'min.mdp' was generated
+;	File 'nvt-minimalist.mdp' was generated
 ;	By user: simon (1000)
 ;	On host: tower
-;	At date: Thu Jun  6 16:38:23 2024
+;	At date: Thu Jun  6 16:38:29 2024
 ;
 ;	Created by:
 ;	                     :-) GROMACS - gmx grompp, 2024.2 (-:
@@ -11,7 +11,7 @@
 ;	Data prefix:  /home/simon/Softwares/gromacs-2024.2 (source tree)
 ;	Working dir:  /home/simon/Git/GROMACS/inputs/level1/bulk-solution
 ;	Command line:
-;	  gmx grompp -f inputs/min.mdp -c conf.gro -p topol.top -o min -pp min -po min
+;	  gmx grompp -f inputs/nvt-minimalist.mdp -c min.gro -p topol.top -o nvt-minimalist -pp nvt-minimalist -po nvt-minimalist
 
 ; VARIOUS PREPROCESSING OPTIONS
 ; Preprocessor information: use cpp syntax.
@@ -21,11 +21,11 @@ include                  =
 define                   = 
 
 ; RUN CONTROL PARAMETERS
-integrator               = steep
+integrator               = md
 ; Start time and timestep in ps
 tinit                    = 0
 dt                       = 0.001
-nsteps                   = 5000
+nsteps                   = 20000
 ; For exact run continuation or redoing part of a run
 init-step                = 0
 ; Part index is updated automatically on checkpointing (keeps files separate)
@@ -63,15 +63,15 @@ rtpi                     = 0.05
 
 ; OUTPUT CONTROL OPTIONS
 ; Output frequency for coords (x), velocities (v) and forces (f)
-nstxout                  = 10
+nstxout                  = 0
 nstvout                  = 0
 nstfout                  = 0
 ; Output frequency for energies to log file and energy file
-nstlog                   = 1000
+nstlog                   = 100
 nstcalcenergy            = 100
-nstenergy                = 1000
+nstenergy                = 100
 ; Output frequency and precision for .xtc file
-nstxout-compressed       = 0
+nstxout-compressed       = 200
 compressed-x-precision   = 1000
 ; This selects the subset of atoms for the compressed
 ; trajectory file. You can select multiple groups. By
@@ -137,15 +137,15 @@ implicit-solvent         = no
 ensemble-temperature-setting = auto
 ensemble-temperature     = -1
 ; Temperature coupling  
-tcoupl                   = No
+tcoupl                   = v-rescale
 nsttcouple               = -1
 nh-chain-length          = 10
 print-nose-hoover-chain-variables = no
 ; Groups to couple separately
-tc-grps                  = 
+tc-grps                  = system
 ; Time constant (ps) and reference temperature (K)
-tau-t                    = 
-ref-t                    = 
+tau-t                    = 0.5
+ref-t                    = 360
 ; pressure coupling     
 pcoupl                   = No
 pcoupltype               = Isotropic
@@ -175,7 +175,7 @@ annealing-temp           =
 ; GENERATE VELOCITIES FOR STARTUP RUN
 gen-vel                  = no
 gen-temp                 = 300
-gen-seed                 = -1111560245
+gen-seed                 = -16816197
 
 ; OPTIONS FOR BONDS    
 constraints              = none

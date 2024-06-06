@@ -1,15 +1,15 @@
 ;
 ;	File 'npt.mdp' was generated
 ;	By user: simon (1000)
-;	On host: simon-laptop
-;	At date: Sun Apr 23 16:13:09 2023
+;	On host: tower
+;	At date: Thu Jun  6 17:04:02 2024
 ;
 ;	Created by:
-;	             :-) GROMACS - gmx grompp, 2022.2-Ubuntu_2022.2_1 (-:
+;	                     :-) GROMACS - gmx grompp, 2024.2 (-:
 ;	
-;	Executable:   /usr/bin/gmx
-;	Data prefix:  /usr
-;	Working dir:  /home/simon/Git/Gromacs/gromacstutorials.github.io/docs/inputs/bulksolution
+;	Executable:   /home/simon/Softwares/gromacs-2024.2/build/bin/gmx
+;	Data prefix:  /home/simon/Softwares/gromacs-2024.2 (source tree)
+;	Working dir:  /home/simon/Git/GROMACS/inputs/level1/bulk-solution
 ;	Command line:
 ;	  gmx grompp -f inputs/npt.mdp -c nvt.gro -p topol.top -o npt -pp npt -po npt
 
@@ -25,13 +25,15 @@ integrator               = md
 ; Start time and timestep in ps
 tinit                    = 0
 dt                       = 0.001
-nsteps                   = 50000
+nsteps                   = 80000
 ; For exact run continuation or redoing part of a run
 init-step                = 0
 ; Part index is updated automatically on checkpointing (keeps files separate)
 simulation-part          = 1
 ; Multiple time-stepping
 mts                      = no
+; factor by which to increase the mass of the lightest atoms
+mass-repartition-factor  = 1
 ; mode for center of mass motion removal
 comm_mode                = linear
 ; number of steps for center of mass motion removal
@@ -69,7 +71,7 @@ nstlog                   = 100
 nstcalcenergy            = 100
 nstenergy                = 100
 ; Output frequency and precision for .xtc file
-nstxout-compressed       = 1000
+nstxout-compressed       = 200
 compressed-x-precision   = 1000
 ; This selects the subset of atoms for the compressed
 ; trajectory file. You can select multiple groups. By
@@ -86,9 +88,11 @@ nstlist                  = 10
 ; Periodic boundary conditions: xyz, no, xy
 pbc                      = xyz
 periodic-molecules       = no
-; Allowed energy error due to the Verlet buffer in kJ/mol/ps per atom,
+; Allowed energy drift due to the Verlet buffer in kJ/mol/ps per atom,
 ; a value of -1 means: use rlist
 verlet-buffer-tolerance  = 0.005
+; Allowed error in the average pressure due to the Verlet buffer for LJ interactions
+verlet-buffer-pressure-tolerance = 0.5
 ; nblist cut-off        
 rlist                    = 1
 ; long-range cut-off for switched potentials
@@ -130,6 +134,8 @@ epsilon-surface          = 0
 implicit-solvent         = no
 
 ; OPTIONS FOR WEAK COUPLING ALGORITHMS
+ensemble-temperature-setting = auto
+ensemble-temperature     = -1
 ; Temperature coupling  
 tcoupl                   = v-rescale
 nsttcouple               = -1
@@ -169,7 +175,7 @@ annealing-temp           =
 ; GENERATE VELOCITIES FOR STARTUP RUN
 gen-vel                  = no
 gen-temp                 = 300
-gen-seed                 = 2145036543
+gen-seed                 = -538191954
 
 ; OPTIONS FOR BONDS    
 constraints              = hbonds
@@ -280,6 +286,7 @@ freezegrps               =
 freezedim                = 
 cos-acceleration         = 0
 deform                   = 
+deform-init-flow         = no
 
 ; simulated tempering variables
 simulated-tempering      = no
@@ -317,3 +324,6 @@ density-guided-simulation-active = false
 
 ; QM/MM with CP2K
 qmmm-cp2k-active         = false
+
+; Colvars bias
+colvars-active           = false

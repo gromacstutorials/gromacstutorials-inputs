@@ -12,7 +12,9 @@ cutoff-scheme = Verlet
 nstlist = 10
 ns_type = grid
 
-nstxout-compressed = 1000
+nstlog = 100
+nstenergy = 100
+nstxout-compressed = 200
 
 vdw-type = Cut-off
 rvdw = 1.0
