@@ -1,0 +1,35 @@
+# This file was created Fri Jun  7 10:10:58 2024
+# Created by:
+#                       :-) GROMACS - gmx msd, 2024.2 (-:
+# 
+# Executable:   /home/simon/Softwares/gromacs-2024.2/build/bin/gmx
+# Data prefix:  /home/simon/Softwares/gromacs-2024.2 (source tree)
+# Working dir:  /home/simon/Git/GROMACS/inputs/level1/bulk-solution/exercises/cage-effect
+# Command line:
+#   gmx msd -f production2.xtc -s production.tpr -o na-msd.xvg
+# gmx msd is part of G R O M A C S:
+#
+# GROtesk MACabre and Sinister
+#
+@    title "Mean Squared Displacement"
+@    xaxis  label "tau (ps)"
+@    yaxis  label "MSD (nm\\S2\\N)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "D[        Na] = 1.7570 (+/- 0.4286) (1e-5 cm^2/s)"
+      0.000          0
+      1.000  0.0116462
+      2.000  0.0253965
+      3.000  0.0360835
+      4.000  0.0408977
+      5.000  0.0484014
+      6.000  0.0678799
+      7.000  0.0772106
+      8.000   0.086677
+      9.000  0.0965086
+     10.000  0.0912831
