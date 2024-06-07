@@ -48,7 +48,7 @@ ${gmx} trjconv -f production.xtc -s production.tpr -o production.xtc -center -pb
     0
 EOF
 
-${gmx} mk_angndx -s production.tpr -hyd no
-${gmx} angle -n angle.ndx  -f production.xtc -od angle-distribution.xvg -binwidth 0.25 << EOF
+${gmx} mk_angndx -s production.tpr -hyd no -type dihedral
+${gmx} angle -n angle.ndx  -f production.xtc -od dihedral-distribution.xvg -binwidth 0.25 -type dihedral << EOF
     0
 EOF
