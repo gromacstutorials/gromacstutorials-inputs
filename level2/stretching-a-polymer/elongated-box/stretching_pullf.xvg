@@ -1,4 +1,4 @@
-# This file was created Fri Jun  7 21:07:31 2024
+# This file was created Fri Jun  7 21:21:19 2024
 # Created by:
 #                      :-) GROMACS - gmx mdrun, 2024.2 (-:
 # 
@@ -9,7 +9,7 @@
 #   gmx mdrun -deffnm stretching -v -nt 8
 # gmx mdrun is part of G R O M A C S:
 #
-# Getting the Right Output Means no Artefacts in Calculating Stuff
+# S  C  A  M  O  R  G
 #
 @    title "Pull force"
 @    xaxis  label "Time (ps)"

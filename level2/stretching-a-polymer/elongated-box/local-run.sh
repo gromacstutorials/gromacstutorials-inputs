@@ -42,12 +42,12 @@ ${gmx} mdrun -deffnm stretching -v -nt 8
 #${gmx} grompp -f inputs/production-peg-h2o.mdp -c stretching.gro -p topol.top -o production -n index.ndx
 #${gmx} mdrun -deffnm production -v -nt 8
 
-${gmx} trjconv -f stretching.xtc -s stretching.tpr -o stretching.xtc -center -pbc mol << EOF
+${gmx} trjconv -f stretching.xtc -s stretching.tpr -o stretching-centered.xtc -center -pbc mol << EOF
     2
     0
 EOF
 
 ${gmx} mk_angndx -s stretching.tpr -hyd no
-${gmx} angle -n angle.ndx  -f stretching.xtc -od angle-distribution.xvg -binwidth 0.25 << EOF
+${gmx} angle -n angle.ndx  -f stretching-centered.xtc -od angle-distribution.xvg -binwidth 0.25 << EOF
     0
 EOF

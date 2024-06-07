@@ -2,7 +2,7 @@
 ;	File 'mdout.mdp' was generated
 ;	By user: simon (1000)
 ;	On host: laptop
-;	At date: Fri Jun  7 21:13:59 2024
+;	At date: Fri Jun  7 21:21:18 2024
 ;
 ;	Created by:
 ;	                     :-) GROMACS - gmx grompp, 2024.2 (-:
@@ -11,7 +11,7 @@
 ;	Data prefix:  /home/simon/Softwares/gromacs-2024.2 (source tree)
 ;	Working dir:  /home/simon/Git/GROMACS/inputs/level2/stretching-a-polymer/elongated-box
 ;	Command line:
-;	  gmx grompp -f inputs/npt-peg-h2o.mdp -c nvt.gro -p topol.top -o npt -maxwarn 1
+;	  gmx grompp -f inputs/stretching-peg-h2o.mdp -c npt.gro -p topol.top -o stretching -n index.ndx
 
 ; VARIOUS PREPROCESSING OPTIONS
 ; Preprocessor information: use cpp syntax.
@@ -35,11 +35,11 @@ mts                      = no
 ; factor by which to increase the mass of the lightest atoms
 mass-repartition-factor  = 1
 ; mode for center of mass motion removal
-comm-mode                = linear
+comm-mode                = Linear
 ; number of steps for center of mass motion removal
 nstcomm                  = 100
 ; group(s) for center of mass motion removal
-comm-grps                = PEG
+comm-grps                = 
 
 ; LANGEVIN DYNAMICS OPTIONS
 ; Friction coefficient (amu/ps) and random seed
@@ -67,11 +67,11 @@ nstxout                  = 0
 nstvout                  = 0
 nstfout                  = 0
 ; Output frequency for energies to log file and energy file
-nstlog                   = 50
+nstlog                   = 100
 nstcalcenergy            = 100
-nstenergy                = 50
+nstenergy                = 100
 ; Output frequency and precision for .xtc file
-nstxout-compressed       = 50
+nstxout-compressed       = 100
 compressed-x-precision   = 1000
 ; This selects the subset of atoms for the compressed
 ; trajectory file. You can select multiple groups. By
@@ -147,13 +147,13 @@ tc_grps                  = PEG Water
 tau_t                    = 0.1 0.1
 ref_t                    = 300 300
 ; pressure coupling     
-pcoupl                   = c-rescale
-pcoupltype               = isotropic
+pcoupl                   = No
+pcoupltype               = Isotropic
 nstpcouple               = -1
 ; Time constant (ps), compressibility (1/bar) and reference P (bar)
-tau-p                    = 0.5
-compressibility          = 4.5e-5
-ref-p                    = 1.0
+tau-p                    = 5
+compressibility          = 
+ref-p                    = 
 ; Scaling of reference coordinates, No, All or COM
 refcoord-scaling         = No
 
@@ -175,7 +175,7 @@ annealing-temp           =
 ; GENERATE VELOCITIES FOR STARTUP RUN
 gen-vel                  = no
 gen-temp                 = 300
-gen-seed                 = -337773065
+gen-seed                 = 1505492959
 
 ; OPTIONS FOR BONDS    
 constraints              = hbonds
@@ -213,7 +213,43 @@ wall-density             =
 wall-ewald-zfac          = 3
 
 ; COM PULLING          
-pull                     = no
+pull                     = yes
+; Cylinder radius for dynamic reaction force groups (nm)
+pull-cylinder-r          = 1.5
+pull-constr-tol          = 1e-06
+pull-print-com           = yes
+pull-print-ref-value     = no
+pull-print-components    = no
+pull-nstxout             = 50
+pull-nstfout             = 50
+pull-pbc-ref-prev-step-com = no
+pull-xout-average        = no
+pull-fout-average        = no
+; Number of pull groups 
+pull-ngroups             = 2
+; Number of pull coordinates
+pull-ncoords             = 1
+; Group and coordinate parameters
+pull-group1-name         = End1
+pull-group1-weights      = 
+pull-group1-pbcatom      = 0
+pull-group2-name         = End2
+pull-group2-weights      = 
+pull-group2-pbcatom      = 0
+pull-coord1-type         = constant-force
+pull-coord1-potential-provider = 
+pull-coord1-expression   = 
+pull-coord1-dx           = 1e-09
+pull-coord1-geometry     = direction-periodic
+pull-coord1-groups       = 1 2
+pull-coord1-dim          = Y N N
+pull-coord1-origin       = 0.0 0.0 0.0
+pull-coord1-vec          = 1 0 0
+pull-coord1-start        = yes
+pull-coord1-init         = 0
+pull-coord1-rate         = 0
+pull-coord1-k            = 200
+pull-coord1-kB           = 200
 
 ; AWH biasing          
 awh                      = no
