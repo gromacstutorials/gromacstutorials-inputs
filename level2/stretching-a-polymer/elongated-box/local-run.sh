@@ -48,6 +48,6 @@ ${gmx} trjconv -f stretching.xtc -s stretching.tpr -o stretching-centered.xtc -c
 EOF
 
 ${gmx} mk_angndx -s stretching.tpr -hyd no -type dihedral
-${gmx} angle -n angle.ndx  -f stretching-centered.xtc -od dihedral-distribution.xvg -binwidth 0.25 -type dihedral -b 10 << EOF
-    0
+${gmx} angle -n angle.ndx  -f stretching-centered.xtc -od dihedral-distribution.xvg -binwidth 0.25 -type dihedral -b 20 << EOF
+   1
 EOF

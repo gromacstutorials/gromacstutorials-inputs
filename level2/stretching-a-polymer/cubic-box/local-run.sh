@@ -50,5 +50,5 @@ EOF
 
 ${gmx} mk_angndx -s production.tpr -hyd no -type dihedral
 ${gmx} angle -n angle.ndx  -f production.xtc -od dihedral-distribution.xvg -binwidth 0.25 -type dihedral << EOF
-    0
+    1
 EOF
