@@ -1,15 +1,15 @@
 ;
 ;	File 'nvt.mdp' was generated
 ;	By user: simon (1000)
-;	On host: simon-laptop
-;	At date: Sun Apr 23 20:06:38 2023
+;	On host: laptop
+;	At date: Sun Jun  9 11:19:37 2024
 ;
 ;	Created by:
-;	             :-) GROMACS - gmx grompp, 2022.2-Ubuntu_2022.2_1 (-:
+;	                     :-) GROMACS - gmx grompp, 2024.2 (-:
 ;	
-;	Executable:   /usr/bin/gmx
-;	Data prefix:  /usr
-;	Working dir:  /home/simon/Git/Gromacs/gromacstutorials.github.io/docs/inputs/solvationenergy/preparation
+;	Executable:   /home/simon/Softwares/gromacs-2024.2/build/bin/gmx
+;	Data prefix:  /home/simon/Softwares/gromacs-2024.2 (source tree)
+;	Working dir:  /home/simon/Desktop/preparation
 ;	Command line:
 ;	  gmx grompp -f inputs/nvt.mdp -c min.gro -p topol.top -o nvt -pp nvt -po nvt -maxwarn 1
 
@@ -32,6 +32,8 @@ init-step                = 0
 simulation-part          = 1
 ; Multiple time-stepping
 mts                      = no
+; factor by which to increase the mass of the lightest atoms
+mass-repartition-factor  = 1
 ; mode for center of mass motion removal
 comm_mode                = linear
 ; number of steps for center of mass motion removal
@@ -86,9 +88,11 @@ nstlist                  = 10
 ; Periodic boundary conditions: xyz, no, xy
 pbc                      = xyz
 periodic-molecules       = no
-; Allowed energy error due to the Verlet buffer in kJ/mol/ps per atom,
+; Allowed energy drift due to the Verlet buffer in kJ/mol/ps per atom,
 ; a value of -1 means: use rlist
 verlet-buffer-tolerance  = 0.005
+; Allowed error in the average pressure due to the Verlet buffer for LJ interactions
+verlet-buffer-pressure-tolerance = 0.5
 ; nblist cut-off        
 rlist                    = 1
 ; long-range cut-off for switched potentials
@@ -98,7 +102,7 @@ rlist                    = 1
 coulombtype              = pme
 coulomb-modifier         = Potential-shift-Verlet
 rcoulomb-switch          = 0
-rcoulomb                 = 1.0
+rcoulomb                 = 1.2
 ; Relative dielectric constant for the medium and the reaction field
 epsilon-r                = 1
 epsilon-rf               = 0
@@ -107,7 +111,7 @@ vdw-type                 = Cut-off
 vdw-modifier             = Potential-shift-Verlet
 ; cut-off lengths       
 rvdw-switch              = 0
-rvdw                     = 1.0
+rvdw                     = 1.2
 ; Apply long range dispersion corrections for Energy and Pressure
 DispCorr                 = No
 ; Extension of the potential lookup tables beyond the cut-off
@@ -130,6 +134,8 @@ epsilon-surface          = 0
 implicit-solvent         = no
 
 ; OPTIONS FOR WEAK COUPLING ALGORITHMS
+ensemble-temperature-setting = auto
+ensemble-temperature     = -1
 ; Temperature coupling  
 tcoupl                   = v-rescale
 nsttcouple               = -1
@@ -145,7 +151,7 @@ pcoupl                   = No
 pcoupltype               = Isotropic
 nstpcouple               = -1
 ; Time constant (ps), compressibility (1/bar) and reference P (bar)
-tau-p                    = 1
+tau-p                    = 5
 compressibility          = 
 ref-p                    = 
 ; Scaling of reference coordinates, No, All or COM
@@ -169,7 +175,7 @@ annealing-temp           =
 ; GENERATE VELOCITIES FOR STARTUP RUN
 gen-vel                  = yes
 gen-temp                 = 300
-gen-seed                 = -306185861
+gen-seed                 = 2147327582
 
 ; OPTIONS FOR BONDS    
 constraints              = hbonds
@@ -244,7 +250,7 @@ free-energy              = no
 couple-moltype           = 
 couple-lambda0           = vdw-q
 couple-lambda1           = vdw-q
-couple-intramol          = no
+couple-intramol          = yes
 init-lambda              = -1
 init-lambda-state        = -1
 delta-lambda             = 0
@@ -280,6 +286,7 @@ freezegrps               =
 freezedim                = 
 cos-acceleration         = 0
 deform                   = 
+deform-init-flow         = no
 
 ; simulated tempering variables
 simulated-tempering      = no
@@ -317,3 +324,6 @@ density-guided-simulation-active = false
 
 ; QM/MM with CP2K
 qmmm-cp2k-active         = false
+
+; Colvars bias
+colvars-active           = false
