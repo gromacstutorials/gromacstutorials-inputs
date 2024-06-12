@@ -1,8 +1,8 @@
 ;
 ;	File 'production.mdp' was generated
 ;	By user: simon (1000)
-;	On host: tower
-;	At date: Thu Jun  6 16:41:17 2024
+;	On host: laptop
+;	At date: Wed Jun 12 22:27:09 2024
 ;
 ;	Created by:
 ;	                     :-) GROMACS - gmx grompp, 2024.2 (-:
@@ -11,7 +11,7 @@
 ;	Data prefix:  /home/simon/Softwares/gromacs-2024.2 (source tree)
 ;	Working dir:  /home/simon/Git/GROMACS/inputs/level1/bulk-solution
 ;	Command line:
-;	  gmx grompp -f inputs/production.mdp -c npt.gro -p topol.top -o production -pp production -po production
+;	  gmx grompp -f inputs/production.mdp -c production.gro -p topol.top -o production -pp production -po production
 
 ; VARIOUS PREPROCESSING OPTIONS
 ; Preprocessor information: use cpp syntax.
@@ -175,7 +175,7 @@ annealing-temp           =
 ; GENERATE VELOCITIES FOR STARTUP RUN
 gen-vel                  = no
 gen-temp                 = 300
-gen-seed                 = -740853265
+gen-seed                 = -33816850
 
 ; OPTIONS FOR BONDS    
 constraints              = hbonds

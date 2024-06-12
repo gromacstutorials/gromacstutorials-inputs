@@ -43,3 +43,9 @@ EOF
 ${gmx} msd -f production.xtc -s production.tpr -o sol-msd.xvg << EOF
     4
 EOF 
+
+${gmx} grompp -f inputs/video.mdp -c production.gro -p topol.top -o video -pp video -po video
+${gmx} mdrun -v -deffnm video -nt 8
+
+${gmx} trjconv -f video.xtc -s video.tpr -o video.xtc -pbc nojump
+
