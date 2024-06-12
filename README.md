@@ -1,13 +1,13 @@
 ## Input files for GROMACS tutorials
 
 LAMMPS and Python input files corresponding
-associated with [gromacs tutorials](https://gromacstutorials.github.io/).
-
-The files include:
+associated with [gromacs tutorials](https://gromacstutorials.github.io/),
+including:
 
 - GROMACS data files, input files, and parameter files,
-- the detailed solutions to the exercises,
 - Python scripts for generating structures and analyzing data.
+
+All GROMACS scripts are compatible with the 2024.2 version.
 
 ### Main repository ###
 
@@ -19,9 +19,7 @@ the main repository for GROMACS tutorial.
 I am a computer physicist in soft matter and fluids at interfaces. You can 
 find more information on my [personal webpage](https://simongravelle.github.io/).
 
-See the [contact page](https://gromacstutorials.github.io/doc-sphinx/build/html/contact/contact.html). 
-You can report issues here on Github, or send me an [email](https://simongravelle.github.io/).
-Your feedback is always appreciated.
+See the [contact page](https://gromacstutorials.github.io/doc-sphinx/build/html/contact/contact.html). You can report issues here on Github, or send me an [email](https://simongravelle.github.io/). Your feedback is always appreciated.
 
 ### License & Acknowledgments ###
 
