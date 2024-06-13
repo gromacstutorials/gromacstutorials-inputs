@@ -52,3 +52,8 @@ ${gmx} mk_angndx -s production.tpr -hyd no -type dihedral
 ${gmx} angle -n angle.ndx  -f production.xtc -od dihedral-distribution.xvg -binwidth 0.25 -type dihedral << EOF
     1
 EOF
+
+${gmx} grompp -f inputs/video.mdp -c production.gro -p topol.top -o video -maxwarn 1
+${gmx} mdrun -deffnm video -v -nt 8
+${gmx} trjconv -f video.xtc -s video.tpr -o video.xtc -pbc nojump
+

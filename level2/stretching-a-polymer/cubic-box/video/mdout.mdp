@@ -2,16 +2,16 @@
 ;	File 'mdout.mdp' was generated
 ;	By user: simon (1000)
 ;	On host: laptop
-;	At date: Thu Jun 13 09:00:50 2024
+;	At date: Thu Jun 13 09:19:43 2024
 ;
 ;	Created by:
 ;	                     :-) GROMACS - gmx grompp, 2024.2 (-:
 ;	
 ;	Executable:   /home/simon/Softwares/gromacs-2024.2/build/bin/gmx
 ;	Data prefix:  /home/simon/Softwares/gromacs-2024.2 (source tree)
-;	Working dir:  /home/simon/Git/GROMACS/inputs/level2/stretching-a-polymer/cubic-box
+;	Working dir:  /home/simon/Git/GROMACS/inputs/level2/stretching-a-polymer/cubic-box/video
 ;	Command line:
-;	  gmx grompp -f inputs/video.mdp -c production.gro -p topol.top -o video -maxwarn 1
+;	  gmx grompp -f ../inputs/npt-peg-h2o.mdp -c video.gro -p topol.top -o npt -maxwarn 1
 
 ; VARIOUS PREPROCESSING OPTIONS
 ; Preprocessor information: use cpp syntax.
@@ -25,7 +25,7 @@ integrator               = md
 ; Start time and timestep in ps
 tinit                    = 0
 dt                       = 0.002
-nsteps                   = 500
+nsteps                   = 10000
 ; For exact run continuation or redoing part of a run
 init-step                = 0
 ; Part index is updated automatically on checkpointing (keeps files separate)
@@ -67,11 +67,11 @@ nstxout                  = 0
 nstvout                  = 0
 nstfout                  = 0
 ; Output frequency for energies to log file and energy file
-nstlog                   = 100
+nstlog                   = 50
 nstcalcenergy            = 100
-nstenergy                = 100
+nstenergy                = 50
 ; Output frequency and precision for .xtc file
-nstxout-compressed       = 10
+nstxout-compressed       = 50
 compressed-x-precision   = 1000
 ; This selects the subset of atoms for the compressed
 ; trajectory file. You can select multiple groups. By
@@ -147,13 +147,13 @@ tc_grps                  = PEG Water
 tau_t                    = 0.1 0.1
 ref_t                    = 300 300
 ; pressure coupling     
-pcoupl                   = No
-pcoupltype               = Isotropic
+pcoupl                   = c-rescale
+pcoupltype               = isotropic
 nstpcouple               = -1
 ; Time constant (ps), compressibility (1/bar) and reference P (bar)
-tau-p                    = 5
-compressibility          = 
-ref-p                    = 
+tau-p                    = 0.5
+compressibility          = 4.5e-5
+ref-p                    = 1.0
 ; Scaling of reference coordinates, No, All or COM
 refcoord-scaling         = No
 
@@ -175,7 +175,7 @@ annealing-temp           =
 ; GENERATE VELOCITIES FOR STARTUP RUN
 gen-vel                  = no
 gen-temp                 = 300
-gen-seed                 = 2147348391
+gen-seed                 = -1435247282
 
 ; OPTIONS FOR BONDS    
 constraints              = hbonds
