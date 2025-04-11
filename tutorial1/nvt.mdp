@@ -2,7 +2,7 @@
 ;	File 'nvt.mdp' was generated
 ;	By user: simon (1000)
 ;	On host: laptop
-;	At date: Fri Apr 11 21:29:43 2025
+;	At date: Fri Apr 11 22:18:00 2025
 ;
 ;	Created by:
 ;	                     :-) GROMACS - gmx grompp, 2025.1 (-:
@@ -175,7 +175,7 @@ annealing-temp           =
 ; GENERATE VELOCITIES FOR STARTUP RUN
 gen-vel                  = yes
 gen-temp                 = 360
-gen-seed                 = -144445826
+gen-seed                 = -218254689
 
 ; OPTIONS FOR BONDS    
 constraints              = hbonds
