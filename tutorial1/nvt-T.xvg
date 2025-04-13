@@ -1,4 +1,4 @@
-# This file was created Sun Apr 13 19:51:03 2025
+# This file was created Sun Apr 13 22:09:35 2025
 # Created by:
 #                      :-) GROMACS - gmx energy, 2025.1 (-:
 # 
@@ -9,7 +9,7 @@
 #   gmx energy -f nvt.edr -o nvt-T.xvg
 # gmx energy is part of G R O M A C S:
 #
-# Grunge ROck MAChoS
+# Good gRace! Old Maple Actually Chews Slate
 #
 @    title "GROMACS Energies"
 @    xaxis  label "Time (ps)"
