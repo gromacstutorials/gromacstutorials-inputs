@@ -11,3 +11,6 @@ ${gmx} mdrun -v -deffnm nvt -nt 8
 
 ${gmx} grompp -f inputs/npt.mdp -c nvt.gro -o npt -pp npt -po npt # optional -p topol.top
 ${gmx} mdrun -v -deffnm npt -nt 8
+
+${gmx} grompp -f inputs/production.mdp -c npt.gro -o production -pp production -po production # optional -p topol.top
+${gmx} mdrun -v -deffnm production -nt 8
