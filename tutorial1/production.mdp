@@ -1,8 +1,8 @@
 ;
 ;	File 'production.mdp' was generated
 ;	By user: simon (1000)
-;	On host: laptop
-;	At date: Sun Apr 13 17:46:11 2025
+;	On host: tower
+;	At date: Mon Apr 14 17:13:28 2025
 ;
 ;	Created by:
 ;	                     :-) GROMACS - gmx grompp, 2025.1 (-:
@@ -175,7 +175,7 @@ annealing-temp           =
 ; GENERATE VELOCITIES FOR STARTUP RUN
 gen-vel                  = no
 gen-temp                 = 300
-gen-seed                 = -1409329540
+gen-seed                 = -237769222
 
 ; OPTIONS FOR BONDS    
 constraints              = hbonds
