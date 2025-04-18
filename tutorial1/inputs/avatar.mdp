@@ -1,5 +1,5 @@
 integrator = md
-nsteps = 4000
+nsteps = 2000
 dt = 0.001
 
 comm_mode = linear
@@ -11,7 +11,7 @@ ns_type = grid
 
 nstlog = 100
 nstenergy = 100
-nstxout-compressed = 2
+nstxout-compressed = 4
 
 vdw-type = Cut-off
 rvdw = 1.0
