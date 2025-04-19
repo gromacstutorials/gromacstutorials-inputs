@@ -19,9 +19,12 @@ convert "$file" \
   -transparent "$transparent_color" \
   -trim +repage \
   -background none \
-  -gravity center \
-  -extent 120%x100% \
   "${base}.png"
 
+  #   -gravity center \
+  # -extent 120%x100% \
+
   echo "Converted: $file → ${base}.png"
+
+  [ -e "$base" ] && rm "$base"
 done
