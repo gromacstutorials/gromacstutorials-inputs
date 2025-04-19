@@ -1,0 +1,3 @@
+set sel [atomselect top "all"]
+$sel set radius 1
+
