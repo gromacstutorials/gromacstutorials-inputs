@@ -25,7 +25,7 @@ process_sequence() {
 
     # Resize to 50%
     for f in ${prefix}.*_transparent.png; do
-        convert "$f" -resize 30% "$f"
+        convert "$f" -resize 45% "$f"
     done
 
     # Create movie
